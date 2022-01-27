@@ -1,0 +1,49 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+
+    <div style="padding: 3%" class="row mt-2">
+        <div class="col-md-4">
+            <h2>Team Data</h2>
+            <hr>
+            <h4>Team 1 Current Score:</h4>
+            <b><p style="color:red; font-size: 140%;" id='p1'></p></b>
+            <h4>Team 2 Current Score:</h4>
+            <b><p style="color:blue; font-size: 140%;" id='p2'></p></b>
+        </div>
+        <div class="col-md-8">
+            <canvas id="myChart" width="400" height="400"></canvas>
+            <script>
+            var xValues = ['Lv1','Lv2','Lv3','Lv4','Lv5','Lv6','Lv7','Lv8','Lv9','Lv10'];
+
+            new Chart("myChart", {
+                type: "line",
+                data: {
+                labels: xValues,
+                datasets: [{
+                    label: "Team 1",
+                    data: [{% for data in data1 %} {{ data.point }}, {% endfor %}],
+                    borderColor: "red",
+                    fill: false
+                },{
+                    label: "Team 2",
+                    data: [{% for data in data2 %} {{ data.point }}, {% endfor %}],
+                    borderColor: "blue",
+                    fill: false
+                    }]
+                },
+                options: {
+                legend: {display: false}
+                }
+            });
+
+            var Score1 = [{% for data in data1 %} '{{ data.point }}', {% endfor %}];
+            var Score2 = [{% for data in data2 %} '{{ data.point }}', {% endfor %}];
+
+            document.getElementById('p1').innerHTML = Score1[Score1.length - 1]
+            document.getElementById('p2').innerHTML = Score2[Score2.length - 1]
+            </script>
+        </div>
+    </div>
+
+{% endblock %}
