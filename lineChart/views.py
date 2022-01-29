@@ -1,15 +1,15 @@
 from django.shortcuts import render
-from . models import T1Score, T2Score
+from . models import Scores
 
 # Create your views here.
 
 def index(request):
-    data1 = T1Score.objects.all()
-    data2 = T2Score.objects.all()
+    
+    data = Scores.objects.all()
+    print(Scores.objects.all())
 
     context = {
-        "data1": data1,
-        "data2": data2
+        "data": data,
     }
 
     return render(request, 'lineChart/index.html', context)

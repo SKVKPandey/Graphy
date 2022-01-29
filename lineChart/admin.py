@@ -1,7 +1,6 @@
 from django.contrib import admin
-from . models import T1Score, T2Score
+from . models import Scores
 
 # Register your models here.
 
-admin.site.register(T1Score)
-admin.site.register(T2Score)
+admin.site.register(Scores)
