@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from . models import Scores
+from . models import Score
 
 # Create your views here.
 
 def index(request):
     
-    data = Scores.objects.all()
-    print(Scores.objects.all())
+    data = Score.objects.all()
+    print(Score.objects.all())
 
     context = {
         "data": data,

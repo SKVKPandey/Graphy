@@ -6,10 +6,46 @@
         <div class="col-md-4">
             <h2>Team Data</h2>
             <hr>
-            <h4>Team 1 Current Score:</h4>
+            <h4>Team 1 Total Score:</h4>
             <b><p style="color:red; font-size: 140%;" id='p1'></p></b>
-            <h4>Team 2 Current Score:</h4>
+            <h4>Team 2 Total Score:</h4>
             <b><p style="color:blue; font-size: 140%;" id='p2'></p></b>
+            <table>
+                <tr>
+                    <th colspan="2"><center><b>Team 1</b></center></th>
+                    <th colspan="2"><center><b>Team 2</b></center></th>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td id='t1a'>&nbsp</td>
+                    <td>Attack</td>
+                    <td id='t2a'>&nbsp</td>
+                </tr>
+                <tr>
+                    <td>Attack Spell <b id='t1asq'>&nbsp</b></td>
+                    <td id='t1as'>&nbsp</td>
+                    <td>Attack Spell <b id='t2asq'>&nbsp</b></td>
+                    <td id='t2as'>&nbsp</td>
+                </tr>
+                <tr>
+                    <td>Defence</td>
+                    <td id='t1d'>&nbsp</td>
+                    <td>Defence</td>
+                    <td id='t2d'>&nbsp</td>
+                </tr>
+                <tr>
+                    <td>Defence Spell <b id='t1dsq'>&nbsp</b></td>
+                    <td id='t1ds'>&nbsp</td>
+                    <td>Defence Spell <b id='t2dsq'>&nbsp</b></td>
+                    <td id='t2ds'>&nbsp</td>
+                </tr>
+                <tr>
+                    <td>Attack Defence Spell <b id='t1adsq'>&nbsp</b></td>
+                    <td id='t1ads'>&nbsp</td>
+                    <td>Attack Defence Spell <b id='t2adsq'>&nbsp</b></td>
+                    <td id='t2ads'>&nbsp</td>
+                </tr>
+            </table>
         </div>
         <div class="col-md-8">
             <canvas id="myChart" width="400" height="400"></canvas>
@@ -35,15 +71,15 @@
                         return (num_list.slice(1,num_list.length))
                         break
                     } else {
-                        total = total + 5 + randint(-6,8);
+                        total = total + 50 + randint(-30,40);
                     }
                 }
             }
 
             var xValues = ['Lv1','Lv2','Lv3','Lv4','Lv5','Lv6','Lv7','Lv8','Lv9','Lv10'];
 
-            var data1 = Gen([{% for score in data %} {{ score.team1 }}, {% endfor %}][0]);
-            var data2 = Gen([{% for score in data %} {{ score.team2 }}, {% endfor %}][0]);
+            var data1 = Gen([{% for score in data %} {{ score.T1A }} + {{ score.T1AS }} + {{ score.T1D }} + {{ score.T1DS }} + {{ score.T1ADS }}, {% endfor %}][0]);
+            var data2 = Gen([{% for score in data %} {{ score.T2A }} + {{ score.T2AS }} + {{ score.T2D }} + {{ score.T2DS }} + {{ score.T2ADS }}, {% endfor %}][0]);
 
             let i = 1;
 
@@ -82,13 +118,49 @@
 
             setInterval(addValue, 1000);
                     
-            var Score1 = [{% for score in data %} {{ score.team1 }}, {% endfor %}];
-            var Score2 = [{% for score in data %} {{ score.team2 }}, {% endfor %}];
+            var Score1 = [{% for score in data %} {{ score.T1A }} + {{ score.T1AS }} + {{ score.T1D }} + {{ score.T1DS }} + {{ score.T1ADS }}, {% endfor %}];
+            var Score2 = [{% for score in data %} {{ score.T2A }} + {{ score.T2AS }} + {{ score.T2D }} + {{ score.T2DS }} + {{ score.T2ADS }}, {% endfor %}];
+            
+            var T1a = [{% for score in data %} {{ score.T1A }} , {% endfor %}];
+            var T1as = [{% for score in data %} {{ score.T1AS }} , {% endfor %}];
+            var T1d = [{% for score in data %} {{ score.T1D }} , {% endfor %}];
+            var T1ds = [{% for score in data %} {{ score.T1DS }} , {% endfor %}];
+            var T1ads = [{% for score in data %} {{ score.T1ADS }} , {% endfor %}];
+            var T1asq = [{% for score in data %} {{ score.T1ASQ }} , {% endfor %}];
+            var T1dsq = [{% for score in data %} {{ score.T1DSQ }} , {% endfor %}];
+            var T1adsq = [{% for score in data %} {{ score.T1ADSQ }} , {% endfor %}];
+
+            var T2a = [{% for score in data %} {{ score.T2A }} , {% endfor %}];
+            var T2as = [{% for score in data %} {{ score.T2AS }} , {% endfor %}];
+            var T2d = [{% for score in data %} {{ score.T2D }} , {% endfor %}];
+            var T2ds = [{% for score in data %} {{ score.T2DS }} , {% endfor %}];
+            var T2ads = [{% for score in data %} {{ score.T2ADS }} , {% endfor %}];
+            var T2asq = [{% for score in data %} {{ score.T2ASQ }} , {% endfor %}];
+            var T2dsq = [{% for score in data %} {{ score.T2DSQ }} , {% endfor %}];
+            var T2adsq = [{% for score in data %} {{ score.T2ADSQ }} , {% endfor %}];
+
+            console.log(T2a);
 
             document.getElementById('p1').innerHTML = Score1[Score1.length - 1];
             document.getElementById('p2').innerHTML = Score2[Score2.length - 1];
 
-            
+            document.getElementById('t1a').innerHTML = T1a[0];
+            document.getElementById('t1as').innerHTML = T1as[0];
+            document.getElementById('t1d').innerHTML = T1d[0];
+            document.getElementById('t1ds').innerHTML = T1ds[0];
+            document.getElementById('t1ads').innerHTML = T1ads[0];
+            document.getElementById('t1asq').innerHTML = T1asq[0];
+            document.getElementById('t1dsq').innerHTML = T1dsq[0];
+            document.getElementById('t1adsq').innerHTML = T1adsq[0];
+
+            document.getElementById('t2a').innerHTML = T2a;
+            document.getElementById('t2as').innerHTML = T2as[0];
+            document.getElementById('t2d').innerHTML = T2d[0];
+            document.getElementById('t2ds').innerHTML = T2ds[0];
+            document.getElementById('t2ads').innerHTML = T2ads[0];
+            document.getElementById('t2asq').innerHTML = T2asq[0];
+            document.getElementById('t2dsq').innerHTML = T2dsq[0];
+            document.getElementById('t2adsq').innerHTML = T2adsq[0];
             
             </script>
         </div>
