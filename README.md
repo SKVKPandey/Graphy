@@ -35,6 +35,6 @@ python manage.py runserver
 
 ## Screenshots
 
-![App Screenshot](https://photos.app.goo.gl/AUGSrsmRfcsgv9PQA)
+![App Screenshot](https://photos.app.goo.gl/emctskXzFd8FRrsc6)
 
 
