@@ -50,4 +50,21 @@ python manage.py runserver
 - On this screen there are few abbreviation and the meaning to them shold be understood in the following way: 'T1' and 'T2' stands for Team 1 and Team 2 respectively. 'A' stands for Attacks, 'D' stands for Defences, 'S' stands for Spells, 'Q' stands for Quantity.
 - It should be clear that all the values should be integer.
 - After this return to the main link of webpage http://127.0.0.1:8000/ and let the random graph do its work.
+- Check out this link for getting the idea that how the random generator graph looks in action: https://vimeo.com/687132974 .
+## Acknowledgements
+
+ - [Django Project Official Website](https://www.djangoproject.com/)
+ - [Chart.js Website](https://www.chartjs.org/)
+ - [Bootstrap Framework](https://getbootstrap.com/)
+
+
+## Authors
+
+- [@SKVKPandey](https://github.com/SKVKPandey)
+- [@techkshitij92](https://github.com/techkshitij92)
+
+
+## Appendix
+
+The project can be further developed into more dynamic and user-friendly web application.
 
