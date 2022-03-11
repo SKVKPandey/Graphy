@@ -1,4 +1,5 @@
 
+
 # Graphy - The Random Graph Generator
 
 Graphy was developed for a game called War which is a part of FIC (Finance and Investment Cell) Society Fest in ARSD College.
@@ -33,8 +34,20 @@ python manage.py runserver
 
 
 
-## Screenshots
+## Guide For Admin
 
-![App Screenshot](https://photos.app.goo.gl/emctskXzFd8FRrsc6)
+- After starting the project open the link http://127.0.0.1:8000/admin for going to the admin section.
+- Enter the username and password created using superuser.
+- After this the below screen will appear.
 
+[![amin01.png](https://i.postimg.cc/nMb7W6S0/amin01.png)](https://postimg.cc/SYdJ2thM)
+
+- On this new screen click on Add button which is on the right side of scores.
+- After this the below screen will appear.
+
+[![admin02.png](https://i.postimg.cc/zBD1CvJk/admin02.png)](https://postimg.cc/R3Y89MJ3)
+
+- On this screen there are few abbreviation and the meaning to them shold be understood in the following way: 'T1' and 'T2' stands for Team 1 and Team 2 respectively. 'A' stands for Attacks, 'D' stands for Defences, 'S' stands for Spells, 'Q' stands for Quantity.
+- It should be clear that all the values should be integer.
+- After this return to the main link of webpage http://127.0.0.1:8000/ and let the random graph do its work.
 
